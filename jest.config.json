@@ -3,6 +3,7 @@
         "raf/polyfill",
         "<rootDir>/src/tests/setupTests.js"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/tests/setupJest.js",    
     "snapshotSerializers": [
         "enzyme-to-json/serializer"
     ]
