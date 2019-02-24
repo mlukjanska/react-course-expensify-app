@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CategoriesSelect correctly with selected category 1`] = `
+<div>
+  <StateManager
+    defaultInputValue=""
+    defaultMenuIsOpen={false}
+    defaultValue={null}
+    onCategoryChange={[Function]}
+    options={
+      Array [
+        Object {
+          "id": "1",
+          "label": "Food",
+          "value": "food",
+        },
+        Object {
+          "id": "2",
+          "label": "Clothes",
+          "value": "clothes",
+        },
+        Object {
+          "id": "3",
+          "label": "House utilities",
+          "value": "house-utilities",
+        },
+        Object {
+          "id": "4",
+          "label": "Bills",
+          "value": "bills",
+        },
+      ]
+    }
+    value="food"
+  />
+</div>
+`;
+
+exports[`should render CategoriesSelect correctly without selected category 1`] = `
+<div>
+  <StateManager
+    defaultInputValue=""
+    defaultMenuIsOpen={false}
+    defaultValue={null}
+    onCategoryChange={[Function]}
+    options={
+      Array [
+        Object {
+          "id": "1",
+          "label": "Food",
+          "value": "food",
+        },
+        Object {
+          "id": "2",
+          "label": "Clothes",
+          "value": "clothes",
+        },
+        Object {
+          "id": "3",
+          "label": "House utilities",
+          "value": "house-utilities",
+        },
+        Object {
+          "id": "4",
+          "label": "Bills",
+          "value": "bills",
+        },
+      ]
+    }
+    value=""
+  />
+</div>
+`;
