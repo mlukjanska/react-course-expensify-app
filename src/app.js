@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 
 // named export
 import { startSetExpenses } from './actions/expenses';
+import { startSetCategories } from './actions/categories';
 import { login, logout } from './actions/auth';
 
 // default export
@@ -50,10 +51,13 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         store.dispatch(login(user.uid));
-        store.dispatch(startSetExpenses()).then(() => {
-            renderApp();
-            if (history.location.pathname === '/') {
-                history.push('/dashboard');
+        store.dispatch(startSetCategories());
+        store.dispatch(startSetExpenses())
+            //.then(store.dispatch(startSetCategories()))
+            .then(() => {
+                renderApp();
+                if (history.location.pathname === '/') {
+                    history.push('/dashboard');
             }
         });
     } else {

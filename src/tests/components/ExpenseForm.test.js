@@ -76,6 +76,7 @@ test('should call onSubmit prop for valid form submission', () => {
     expect(wrapper.state('error')).toBe('');
     expect(onSubmitSpy).toHaveBeenLastCalledWith({
         description: expenses[0].description,
+        category: expenses[0].category,
         amount: expenses[0].amount,
         note: expenses[0].note,
         createdAt: expenses[0].createdAt

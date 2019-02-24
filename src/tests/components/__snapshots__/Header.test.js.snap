@@ -19,6 +19,13 @@ exports[`should render Header correctly 1`] = `
   >
     Add expense
   </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    ariaCurrent="true"
+    to="/createcategory"
+  >
+    Add category
+  </NavLink>
   <button
     onClick={[Function]}
   >

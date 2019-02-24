@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
+import CategoriesSelect from './CategoriesSelect';
 
 export default class ExpenseForm extends React.Component {
     constructor(props) {
@@ -9,11 +10,12 @@ export default class ExpenseForm extends React.Component {
         this.state = {
             description: props.expense ? props.expense.description : '',
             note: props.expense ? props.expense.note : '',
+            category: props.expense ? props.expense.category : '',
             amount: props.expense ? (props.expense.amount / 100).toString() : '',
             createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
             calendarFocused: false,
             error: ''
-        }
+        };
     }
     onDescriptionChange = (e) => {
         const description = e.target.value;
@@ -25,7 +27,10 @@ export default class ExpenseForm extends React.Component {
         //or
         //e.persist()
         //this.setState(() => ({ note: e.target.value }));
-    };    
+    };   
+    onCategoryChange = ({category}) => {
+        this.setState(() => ({ category }));
+    };        
     onAmountChange = (e) => {
         const amount = e.target.value;
         //regexe101.com
@@ -44,12 +49,13 @@ export default class ExpenseForm extends React.Component {
     onSubmit = (e) => {
         //Prevent browser refresh
         e.preventDefault();
-        if (!this.state.description || !this.state.amount) {
-            this.setState(() => ({ error: 'Please provide description and amount!' }));
+        if (!this.state.description || !this.state.amount || !this.state.category ) {
+            this.setState(() => ({ error: 'Please provide description, amount and category!' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
                 description: this.state.description,
+                category: this.state.category,
                 amount: parseFloat(this.state.amount, 10) * 100,
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
@@ -74,6 +80,10 @@ export default class ExpenseForm extends React.Component {
                       value={this.state.amount}                      
                       onChange={this.onAmountChange}
                     />
+                    <CategoriesSelect
+                        category={this.state.category}
+                        onCategoryChange={this.onCategoryChange}>
+                    </CategoriesSelect>
                     <SingleDatePicker 
                       date={this.state.createdAt}
                       onDateChange={this.onDateChange}
@@ -93,4 +103,4 @@ export default class ExpenseForm extends React.Component {
             </div>
         )
     }
-}
+};
