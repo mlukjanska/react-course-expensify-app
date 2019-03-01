@@ -23,7 +23,7 @@ export class CategoriesSelect extends React.Component {
                         <p>No categories</p>
                     ) : ( 
                         <Select 
-                            onCategoryChange={this.onCategoryChange}
+                            onChange={this.onCategoryChange}
                             value={this.state.categorySelected}
                             options={this.props.categories}>
                         </Select>

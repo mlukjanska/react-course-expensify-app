@@ -6,7 +6,7 @@ exports[`should render CategoriesSelect correctly with selected category 1`] = `
     defaultInputValue=""
     defaultMenuIsOpen={false}
     defaultValue={null}
-    onCategoryChange={[Function]}
+    onChange={[Function]}
     options={
       Array [
         Object {
@@ -42,7 +42,7 @@ exports[`should render CategoriesSelect correctly without selected category 1`] 
     defaultInputValue=""
     defaultMenuIsOpen={false}
     defaultValue={null}
-    onCategoryChange={[Function]}
+    onChange={[Function]}
     options={
       Array [
         Object {
