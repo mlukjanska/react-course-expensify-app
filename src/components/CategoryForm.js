@@ -30,18 +30,19 @@ export default class CategoryForm extends React.Component {
     }       
     render () {
         return (
-            <div>
-                {this.state.error && <div>{this.state.error}</div>}
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                      type="text"
-                      placeholder="Label"
-                      value={this.state.label}                      
-                      onChange={this.onLabelChange}
-                    />
-                    <button>Add Category</button>
-                </form>
-            </div>
+            <form className="form" onSubmit={this.onSubmit}>
+                {this.state.error && <p className="form__error">{this.state.error}</p>}
+                <input 
+                    type="text"
+                    className="text-input"
+                    placeholder="Label"
+                    value={this.state.label}                      
+                    onChange={this.onLabelChange}
+                />
+                <div>
+                    <button className="button">Add Category</button>
+                </div>
+            </form>
         )
     }
 }

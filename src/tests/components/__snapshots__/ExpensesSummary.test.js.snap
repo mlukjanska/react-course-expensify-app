@@ -22,15 +22,30 @@ exports[`should render ExpensesSummary with 1 expense 1`] = `
       </span>
     </h1>
     <div
-      className="page-header__actions"
+      className="page-header__actions-group"
     >
-      <Link
-        className="button"
-        replace={false}
-        to="/create"
+      <div
+        className="page-header__actions"
       >
-        Add Expense
-      </Link>
+        <Link
+          className="button"
+          replace={false}
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+      <div
+        className="page-header__actions"
+      >
+        <Link
+          className="button"
+          replace={false}
+          to="/create-category"
+        >
+          Add Category
+        </Link>
+      </div>
     </div>
   </div>
 </div>
@@ -58,15 +73,30 @@ exports[`should render ExpensesSummary with multiple expenses 1`] = `
       </span>
     </h1>
     <div
-      className="page-header__actions"
+      className="page-header__actions-group"
     >
-      <Link
-        className="button"
-        replace={false}
-        to="/create"
+      <div
+        className="page-header__actions"
       >
-        Add Expense
-      </Link>
+        <Link
+          className="button"
+          replace={false}
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+      <div
+        className="page-header__actions"
+      >
+        <Link
+          className="button"
+          replace={false}
+          to="/create-category"
+        >
+          Add Category
+        </Link>
+      </div>
     </div>
   </div>
 </div>
