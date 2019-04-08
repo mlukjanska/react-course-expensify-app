@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import expensesReducer from '../reducers/expenses';
 import categoriesReducer from '../reducers/categories';
+import subCategoriesReducer from '../reducers/subcategories';
 import filtersReducer from '../reducers/filters';
 import authReducer from '../reducers/auth';
 
@@ -13,6 +14,7 @@ export default () => {
         combineReducers({
             expenses: expensesReducer,
             categories: categoriesReducer,
+            subcategories: subCategoriesReducer,           
             filters: filtersReducer,
             auth: authReducer
         }),

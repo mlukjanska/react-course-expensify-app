@@ -12,11 +12,12 @@ export const startAddExpense = (expenseData = {}) => {
         const {
             description = '', 
             category = '',
+            subcategory = '',
             note = '', 
             amount = 0, 
             createdAt = 0
         } = expenseData;
-        const expense = { description, category, note, amount, createdAt };
+        const expense = { description, category, subcategory, note, amount, createdAt };
 
         return database.ref(`users/${uid}/expenses`).push(expense).then((ref) => {
             dispatch(addExpense({

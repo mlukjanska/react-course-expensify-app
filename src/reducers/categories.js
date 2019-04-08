@@ -8,10 +8,21 @@ export default (state = categoriesReducerDefaultState, action) => {
             return [
                 ...state,
                 action.category
-            ]            
-        case 'SET_CATEGORIES':
-            return action.categories;
-        default:
-            return state;
+            ]
+            case 'EDIT_CATEGORY':
+            return state.map((category) => {
+                if (category.id === action.id) {
+                    return {
+                        ... category,
+                        ... action.updates
+                    };
+                } else {
+                    return category;
+                }
+            });                    
+            case 'SET_CATEGORIES':
+                return action.categories;
+            default:
+                return state;
     }
 };

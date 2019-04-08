@@ -7,6 +7,7 @@ import configureStore from './store/configureStore';
 // named export
 import { startSetExpenses } from './actions/expenses';
 import { startSetCategories } from './actions/categories';
+import { startSetSubCategories } from './actions/subcategories';
 import { login, logout } from './actions/auth';
 
 // default export
@@ -53,6 +54,7 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         store.dispatch(login(user.uid));
         store.dispatch(startSetCategories());
+        store.dispatch(startSetSubCategories());
         store.dispatch(startSetExpenses())
             //.then(store.dispatch(startSetCategories()))
             .then(() => {

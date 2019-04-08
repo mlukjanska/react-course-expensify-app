@@ -20,9 +20,15 @@ exports[`should render ExpenseForm correctly without expense data 1`] = `
     type="text"
     value=""
   />
-  <Connect(CategoriesSelect)
-    category=""
+  <CategoriesSelect
+    categorySelected=""
     onCategoryChange={[Function]}
+  />
+  <SubCategoriesSelect
+    categorySelected=""
+    onSubCategoryChange={[Function]}
+    subcategories=""
+    subcategorySelected=""
   />
   <SingleDatePicker
     anchorDirection="left"
@@ -136,9 +142,15 @@ exports[`should render ExpenseForm with expense data 1`] = `
     type="text"
     value="1.95"
   />
-  <Connect(CategoriesSelect)
-    category="food"
+  <CategoriesSelect
+    categorySelected="1"
     onCategoryChange={[Function]}
+  />
+  <SubCategoriesSelect
+    categorySelected="1"
+    onSubCategoryChange={[Function]}
+    subcategories=""
+    subcategorySelected="1"
   />
   <SingleDatePicker
     anchorDirection="left"
@@ -252,9 +264,15 @@ exports[`should render error for invalid form submission 1`] = `
     type="text"
     value=""
   />
-  <Connect(CategoriesSelect)
-    category=""
+  <CategoriesSelect
+    categorySelected=""
     onCategoryChange={[Function]}
+  />
+  <SubCategoriesSelect
+    categorySelected=""
+    onSubCategoryChange={[Function]}
+    subcategories=""
+    subcategorySelected=""
   />
   <SingleDatePicker
     anchorDirection="left"
@@ -373,9 +391,15 @@ exports[`should render error for invalid form submission 2`] = `
     type="text"
     value=""
   />
-  <Connect(CategoriesSelect)
-    category=""
+  <CategoriesSelect
+    categorySelected=""
     onCategoryChange={[Function]}
+  />
+  <SubCategoriesSelect
+    categorySelected=""
+    onSubCategoryChange={[Function]}
+    subcategories=""
+    subcategorySelected=""
   />
   <SingleDatePicker
     anchorDirection="left"

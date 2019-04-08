@@ -1,12 +1,13 @@
 import React from 'react';
 
-export default class CategoryForm extends React.Component {
+export default class SubCategoryForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            value: props.category ? props.category.value : '',
-            label: props.category ? props.category.label : '',
+            parentkey: props.parentkey ? props.parentkey : '',
+            value: props.subcategory ? props.subcategory.value : '',
+            label: props.subcategory ? props.subcategory.label : '',
             error: ''
         };
     }
@@ -19,13 +20,15 @@ export default class CategoryForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         if (!this.state.label) {
-            this.setState(() => ({ error: 'Please provide category label!' }));
+            this.setState(() => ({ error: 'Please provide subcategory label!' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
+                parentkey: this.state.parentkey,
                 value: this.state.value,
                 label: this.state.label
             });
+            this.setState(() => ({ label: '' }));
         }
     }       
     render () {
@@ -35,12 +38,12 @@ export default class CategoryForm extends React.Component {
                 <input 
                     type="text"
                     className="text-input"
-                    placeholder="Enter category label"
+                    placeholder="Enter subcategory label"
                     value={this.state.label}                      
                     onChange={this.onLabelChange}
                 />
                 <div>
-                    <button className="button">Save Category</button>
+                    <button className="button">Save Subcategory</button>
                 </div>
             </form>
         )

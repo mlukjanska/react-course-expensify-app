@@ -41,9 +41,9 @@ exports[`should render ExpensesSummary with 1 expense 1`] = `
         <Link
           className="button"
           replace={false}
-          to="/create-category"
+          to="/categories"
         >
-          Add Category
+          Categories
         </Link>
       </div>
     </div>
@@ -92,9 +92,9 @@ exports[`should render ExpensesSummary with multiple expenses 1`] = `
         <Link
           className="button"
           replace={false}
-          to="/create-category"
+          to="/categories"
         >
-          Add Category
+          Categories
         </Link>
       </div>
     </div>

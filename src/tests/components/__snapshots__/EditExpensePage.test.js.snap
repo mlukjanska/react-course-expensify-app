@@ -18,15 +18,16 @@ exports[`should render EditExpensePage correctly 1`] = `
   <div
     className="content-container"
   >
-    <ExpenseForm
+    <Connect(ExpenseForm)
       expense={
         Object {
           "amount": 109500,
-          "category": "house-utilities",
+          "category": "4",
           "createdAt": -345600000,
           "description": "Rent",
           "id": "2",
           "note": "",
+          "subcategory": "3",
         }
       }
       onSubmit={[Function]}

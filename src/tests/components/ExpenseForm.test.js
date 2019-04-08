@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 import expenses from '../fixtures/expenses'
-import ExpenseForm from '../../components/ExpenseForm';
+import { ExpenseForm } from '../../components/ExpenseForm';
 
 test('should render ExpenseForm correctly without expense data', () => {
     const wrapper = shallow(<ExpenseForm />);
@@ -77,6 +77,7 @@ test('should call onSubmit prop for valid form submission', () => {
     expect(onSubmitSpy).toHaveBeenLastCalledWith({
         description: expenses[0].description,
         category: expenses[0].category,
+        subcategory: expenses[0].subcategory,
         amount: expenses[0].amount,
         note: expenses[0].note,
         createdAt: expenses[0].createdAt

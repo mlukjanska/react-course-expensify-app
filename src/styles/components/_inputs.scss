@@ -8,7 +8,14 @@
 
 .select {
     @extend .text-input;
+}
+
+.react-select {
+    @extend .text-input;
     border: none;
+    height: 50px;
+    font-family: sans-serif;
+    padding: inherit;
 }
 
 .textarea {

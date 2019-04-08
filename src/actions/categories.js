@@ -24,6 +24,22 @@ export const startAddCategory = (categoryData = {}) => {
   };
 };
 
+//EDIT_CATEGORY
+export const editCategory = (id, updates) => ({
+    type: 'EDIT_CATEGORY',
+    id, 
+    updates
+});
+
+export const startEditCategory = (id, updates) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/categories/${id}`).update(updates).then(() => {
+            dispatch(editCategory(id, updates));
+        });
+    };
+};
+
 // SET_CATEGORIES
 export const setCategories = (categories) => ({
     type: 'SET_CATEGORIES',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CategoriesSelect } from '../../components/CategoriesSelect';
+import CategoriesSelect from '../../components/CategoriesSelect';
 import categories from '../fixtures/categories'
 
 let onCategoryChange, wrapper;

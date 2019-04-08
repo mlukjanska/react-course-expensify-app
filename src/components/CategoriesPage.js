@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CategoryForm from './CategoryForm';
+import CategoryList from './CategoryList';
 import { startAddCategory } from '../actions/categories';
 
-export class AddCategoryPage extends React.Component {
+export class CategoriesPage extends React.Component {
   onSubmit = (category) => {
     this.props.startAddCategory(category);
     this.props.history.push('/');
@@ -13,7 +14,7 @@ export class AddCategoryPage extends React.Component {
       <div>
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title">Add Category</h1>
+            <h1 className="page-header__title">Categories</h1>
           </div>
         </div>
         <div className="content-container">
@@ -21,14 +22,14 @@ export class AddCategoryPage extends React.Component {
             onSubmit={this.onSubmit}
           />          
         </div>
+        <CategoryList />
       </div>
     )
   };
 }
 
-//Abstracting away dispatch functions
 const mapDispatchToProps = (dispatch) => ({
   startAddCategory: (category) => dispatch(startAddCategory(category))
 });
 
-export default connect(undefined, mapDispatchToProps)(AddCategoryPage);
+export default connect(undefined, mapDispatchToProps)(CategoriesPage);

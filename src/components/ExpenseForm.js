@@ -1,16 +1,20 @@
 import React from 'react';
 import moment from 'moment';
+import { connect } from 'react-redux';
 import { SingleDatePicker } from 'react-dates';
 import CategoriesSelect from './CategoriesSelect';
+import SubCategoriesSelect from './SubCategoriesSelect';
 
-export default class ExpenseForm extends React.Component {
+export class ExpenseForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             description: props.expense ? props.expense.description : '',
             note: props.expense ? props.expense.note : '',
-            category: props.expense ? props.expense.category : '',
+            categorySelected: props.expense ? props.expense.category : '',
+            subcategorySelected: props.expense ? props.expense.subcategory : '',
+            subcategories: (props.expense && props.subcategoriesAll) ? props.subcategoriesAll.filter((subcategory) => subcategory.parentkey === props.expense.category) : '',
             amount: props.expense ? (props.expense.amount / 100).toString() : '',
             createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
             calendarFocused: false,
@@ -28,9 +32,17 @@ export default class ExpenseForm extends React.Component {
         //e.persist()
         //this.setState(() => ({ note: e.target.value }));
     };   
-    onCategoryChange = (category) => {
-        this.setState(() => ( { category } ));
-    };        
+    onCategoryChange = (categoryId) => {
+        this.setState(() => ( { categorySelected: categoryId } ));
+        this.setState(() => ( { subcategorySelected: '' } ));
+        const filteredSubcategories = this.props.subcategoriesAll.filter((subcategory) => subcategory.parentkey === categoryId);
+        this.setState(() => ( {
+            subcategories: filteredSubcategories ? filteredSubcategories : ''            
+        } ));
+    };   
+    onSubCategoryChange = (subcategoryId) => {
+        this.setState(() => ( { subcategorySelected: subcategoryId } ));
+    };       
     onAmountChange = (e) => {
         const amount = e.target.value;
         //regexe101.com
@@ -49,13 +61,14 @@ export default class ExpenseForm extends React.Component {
     onSubmit = (e) => {
         //Prevent browser refresh
         e.preventDefault();
-        if (!this.state.description || !this.state.amount || !this.state.category ) {
+        if (!this.state.description || !this.state.amount || !this.state.categorySelected ) {
             this.setState(() => ({ error: 'Please provide description, amount and category!' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
                 description: this.state.description,
-                category: this.state.category,
+                category: this.state.categorySelected,
+                subcategory: this.state.subcategorySelected,
                 amount: parseFloat(this.state.amount, 10) * 100,
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
@@ -82,9 +95,16 @@ export default class ExpenseForm extends React.Component {
                     onChange={this.onAmountChange}
                 />
                 <CategoriesSelect
-                    category={this.state.category}
+                    categorySelected={this.state.categorySelected}
+                    categories={this.props.categoriesAll}
                     onCategoryChange={this.onCategoryChange}>
                 </CategoriesSelect>
+                <SubCategoriesSelect
+                    categorySelected={this.state.categorySelected}
+                    subcategorySelected={this.state.subcategorySelected}
+                    subcategories={this.state.subcategories}
+                    onSubCategoryChange={this.onSubCategoryChange}>
+                </SubCategoriesSelect>
                 <SingleDatePicker 
                     date={this.state.createdAt}
                     onDateChange={this.onDateChange}
@@ -107,3 +127,12 @@ export default class ExpenseForm extends React.Component {
         )
     }
 };
+
+const mapStateToProps = (state, props) => {
+    return {
+        categoriesAll: state.categories,
+        subcategoriesAll: state.subcategories
+    };
+}
+
+export default connect(mapStateToProps)(ExpenseForm); 

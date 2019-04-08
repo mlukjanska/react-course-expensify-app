@@ -65,30 +65,33 @@ exports[`should render ExpenseList with expenses 1`] = `
   >
     <ExpenseListItem
       amount={195}
-      category="food"
+      category="1"
       createdAt={0}
       description="Gum"
       id="1"
       key="1"
       note=""
+      subcategory="1"
     />
     <ExpenseListItem
       amount={109500}
-      category="house-utilities"
+      category="4"
       createdAt={-345600000}
       description="Rent"
       id="2"
       key="2"
       note=""
+      subcategory="3"
     />
     <ExpenseListItem
       amount={4500}
-      category="bills"
+      category="4"
       createdAt={345600000}
       description="Credit Card"
       id="3"
       key="3"
       note=""
+      subcategory=""
     />
   </div>
 </div>

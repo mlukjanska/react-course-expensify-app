@@ -40,7 +40,7 @@ export const ExpensesSummary = ({expenseCount, expensesTotal}) => {
                         <Link className="button" to="/create">Add Expense</Link>
                     </div>
                     <div className="page-header__actions">
-                        <Link className="button" to="/create-category">Add Category</Link>
+                        <Link className="button" to="/categories">Categories</Link>
                     </div>
                 </div>              
             </div>
