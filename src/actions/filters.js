@@ -4,6 +4,12 @@ export const setTextFilter = (text = '') => ({
     text
 });
 
+//SET_CATEGORY_FILTER
+export const setCategoryFilter = (category = '') => ({
+    type: 'SET_CATEGORY_FILTER',
+    category
+});
+
 //SORT_BY_AMOUNT
 export const sortByAmount = () => ({
     type: 'SORT_BY_AMOUNT'

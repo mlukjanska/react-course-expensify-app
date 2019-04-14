@@ -38,6 +38,18 @@ exports[`should render ExpenseListFilters correctly 1`] = `
         </option>
       </select>
     </div>
+  </div>
+  <div
+    className="input-group"
+  >
+    <div
+      className="input-group__item"
+    >
+      <CategoriesSelect
+        className="select"
+        onCategoryChange={[Function]}
+      />
+    </div>
     <div
       className="input-group__item"
     >
@@ -166,6 +178,18 @@ exports[`should render ExpenseListFilters with alt data correctly 1`] = `
           Amount
         </option>
       </select>
+    </div>
+  </div>
+  <div
+    className="input-group"
+  >
+    <div
+      className="input-group__item"
+    >
+      <CategoriesSelect
+        className="select"
+        onCategoryChange={[Function]}
+      />
     </div>
     <div
       className="input-group__item"

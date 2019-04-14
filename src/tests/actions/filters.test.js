@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { setStartDate, setEndDate, sortByAmount, sortByDate, setTextFilter } from '../../actions/filters';
+import { setStartDate, setEndDate, sortByAmount, sortByDate, setTextFilter, setCategoryFilter } from '../../actions/filters';
 
 test ('should generate set start date action object', () => {
     const action = setStartDate(moment(0));
@@ -46,5 +46,22 @@ test ('should generate set text filter action object with text value', () => {
     expect(action).toEqual({
         type: 'SET_FILTER',
         text
+    });
+});
+
+test ('should generate set category filter action object with no category value', () => {
+    const action = setCategoryFilter();
+    expect(action).toEqual({
+        type: 'SET_CATEGORY_FILTER',
+        category: ''
+    });
+});
+
+test ('should generate set category filter action object with category value', () => {
+    const category = 'category_key';
+    const action = setCategoryFilter(category);
+    expect(action).toEqual({
+        type: 'SET_CATEGORY_FILTER',
+        category
     });
 });

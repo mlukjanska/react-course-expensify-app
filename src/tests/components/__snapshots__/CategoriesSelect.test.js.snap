@@ -7,6 +7,7 @@ exports[`should render CategoriesSelect correctly with selected category 1`] = `
     defaultInputValue=""
     defaultMenuIsOpen={false}
     defaultValue={null}
+    isClearable={true}
     onChange={[Function]}
     options={
       Array [
@@ -32,6 +33,7 @@ exports[`should render CategoriesSelect correctly with selected category 1`] = `
         },
       ]
     }
+    placeholder="Select category..."
   />
 </div>
 `;
@@ -43,6 +45,7 @@ exports[`should render CategoriesSelect correctly without selected category 1`] 
     defaultInputValue=""
     defaultMenuIsOpen={false}
     defaultValue={null}
+    isClearable={true}
     onChange={[Function]}
     options={
       Array [
@@ -68,6 +71,8 @@ exports[`should render CategoriesSelect correctly without selected category 1`] 
         },
       ]
     }
+    placeholder="Select category..."
+    value=""
   />
 </div>
 `;

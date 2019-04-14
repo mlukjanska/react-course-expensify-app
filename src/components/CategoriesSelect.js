@@ -1,10 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
 
-
 export default class CategoriesSelect extends React.Component {
     onCategoryChange = (category) => {
-        this.props.onCategoryChange( category.id );
+        this.props.onCategoryChange( category ? category.id : '' );
     };         
     render () {
         return (
@@ -14,9 +13,11 @@ export default class CategoriesSelect extends React.Component {
                         <p>No categories</p>
                     ) : ( 
                         <Select
-                            className="react-select" 
+                            className="react-select"
+                            placeholder="Select category..."
+                            isClearable={true}
                             onChange={this.onCategoryChange}
-                            value={this.props.categories.find((category) => category.id === this.props.categorySelected)}
+                            value={ this.props.categorySelected ? this.props.categories.find((category) => category.id === this.props.categorySelected) : '' }
                             options={this.props.categories}>
                         </Select>
                         )
