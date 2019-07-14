@@ -25,29 +25,29 @@ The database configuration files should be added in the project root
 `.env.development`
 `.env.test`
 
-The configuration files should contain the following data
-FIREBASE_API_KEY=<firebase api key>
-FIREBASE_AUTH_DOMAIN=<firebase auth domain>
-FIREBASE_DATABASE_URL=<firebase database url>
-FIREBASE_PROJECT_ID=<firebase project id>
-FIREBASE_STORAGE_BUCKET=<firebase storage bucket>
-FIREBASE_MESSAGING_SENDER_ID=<firebase messaging sender id>
+The configuration files should contain the following data  
+FIREBASE_API_KEY=<firebase api key>  
+FIREBASE_AUTH_DOMAIN=<firebase auth domain>  
+FIREBASE_DATABASE_URL=<firebase database url>  
+FIREBASE_PROJECT_ID=<firebase project id>  
+FIREBASE_STORAGE_BUCKET=<firebase storage bucket>  
+FIREBASE_MESSAGING_SENDER_ID=<firebase messaging sender id>  
 
 ## Run Application
 
 To start the app run `yarn run dev-server`
-In the console it will 
 
 ## Run Tests
 
-Command to run the tests, the watch flag adds capability of rerunning the tests upon changes in the code `yarn test --watch`
+Command to run the tests, the watch flag adds capability of rerunning the tests upon changes in the code  
+`yarn test --watch`
 
 ## Technologies
 
-React 16
-[Firebase](https://firebase.google.com/)
-Redux
-Jest 
+React 16  
+[Firebase](https://firebase.google.com/)  
+Redux  
+Jest  
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
