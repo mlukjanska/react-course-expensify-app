@@ -14,16 +14,16 @@ Application to track personal expenses based on the udemy course ["The Complete 
 
 ## Installation
 
-Check out the code of the repository
-Go to the folder
-Run `npm install` - this will install required packages
+Check out the code of the repository  
+Go to the folder  
+Run `npm install` - this will install required packages  
 
 ## Configuration
 
-In order to develop and test the application you will need to setup in [Firebase](https://firebase.google.com/) the development and test databases.
-The database configuration files should be added in the project root
-`.env.development`
-`.env.test`
+In order to develop and test the application you will need to setup in [Firebase](https://firebase.google.com/) the development and test databases.  
+The database configuration files should be added in the project root  
+`.env.development`  
+`.env.test`  
 
 The configuration files should contain the following data  
 FIREBASE_API_KEY=<firebase api key>  
