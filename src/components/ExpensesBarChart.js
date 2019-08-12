@@ -35,6 +35,31 @@ export const ExpensesBarChart = (props) => {
     return (
 
         <div className="chart-container">
+            <div className="chart-item">    
+                { 
+                    <VictoryChart
+                        domainPadding={20}
+                    >
+                    <VictoryLabel 
+                        x={160} 
+                        y={10} 
+                        style={chartLabelStyle}
+                        text="Expenses by day"
+                    />                        
+                    <VictoryBar
+                        style={barChartStyle}
+                        data={formattedExpensesByDaysTotal}
+                        labels={(formattedExpensesByDaysTotal) => `€ ${formattedExpensesByDaysTotal.amount}`}
+                        // data accessor for x values
+                        x="day"
+                        // data accessor for y values
+                        y="amount"
+                        sortKey="x"
+                        sortOrder="descending"
+                        />
+                    </VictoryChart>
+                }        
+            </div>
             <div className="chart-item">
                 { 
                     <VictoryChart
@@ -66,17 +91,17 @@ export const ExpensesBarChart = (props) => {
                         domainPadding={20}
                     >
                     <VictoryLabel 
-                        x={160} 
+                        x={130} 
                         y={10} 
                         style={chartLabelStyle}
-                        text="Expenses by day"
+                        text="Expenses by subcategories"
                     />                        
                     <VictoryBar
                         style={barChartStyle}
-                        data={formattedExpensesByDaysTotal}
-                        labels={(formattedExpensesByDaysTotal) => `€ ${formattedExpensesByDaysTotal.amount}`}
+                        data={formattedExpensesBySubcategoriesTotal}
+                        labels={(formattedExpensesBySubcategoriesTotal) => `€ ${formattedExpensesBySubcategoriesTotal.amount}`}
                         // data accessor for x values
-                        x="day"
+                        x="subcategory"
                         // data accessor for y values
                         y="amount"
                         sortKey="x"
@@ -84,32 +109,7 @@ export const ExpensesBarChart = (props) => {
                         />
                     </VictoryChart>
                 }        
-            </div>
-                <div className="chart-item">    
-                    { 
-                        <VictoryChart
-                            domainPadding={20}
-                        >
-                        <VictoryLabel 
-                            x={130} 
-                            y={10} 
-                            style={chartLabelStyle}
-                            text="Expenses by subcategories"
-                        />                        
-                        <VictoryBar
-                            style={barChartStyle}
-                            data={formattedExpensesBySubcategoriesTotal}
-                            labels={(formattedExpensesBySubcategoriesTotal) => `€ ${formattedExpensesBySubcategoriesTotal.amount}`}
-                            // data accessor for x values
-                            x="subcategory"
-                            // data accessor for y values
-                            y="amount"
-                            sortKey="x"
-                            sortOrder="descending"
-                            />
-                        </VictoryChart>
-                    }        
-                </div>            
+            </div>            
         </div>
     );
 };
