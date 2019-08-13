@@ -6,7 +6,7 @@ import selectExpenses from '../selectors/expenses';
 import selectExpensesBySubcategoryTotal from '../selectors/charts/expenses-by-subcategory-total';
 import selectExpensesByCategoryTotal from '../selectors/charts/expenses-by-category-total';
 import selectExpensesByDaysTotal from '../selectors/charts/expenses-by-days-total';
-import { VictoryBar, VictoryChart, VictoryLabel } from 'victory';
+import { VictoryBar, VictoryChart, VictoryLabel, VictoryAxis } from 'victory';
 
 export const ExpensesBarChart = (props) => {
     numeral.locale('eu');
@@ -42,11 +42,14 @@ export const ExpensesBarChart = (props) => {
                         width={800}
                     >
                     <VictoryLabel 
-                        x={160} 
+                        x={40} 
                         y={10} 
                         style={chartLabelStyle}
                         text="Expenses by day"
-                    />                        
+                    />
+                    <VictoryAxis
+                        tickLabelComponent={<VictoryLabel angle={45} dx={10} />}
+                    />                               
                     <VictoryBar
                         style={barChartStyle}
                         data={formattedExpensesByDaysTotal}
@@ -68,11 +71,14 @@ export const ExpensesBarChart = (props) => {
                         width={800}
                     >
                         <VictoryLabel 
-                            x={140} 
+                            x={40} 
                             y={10} 
                             style={chartLabelStyle}
                             text="Expenses by categories"
                         />
+                        <VictoryAxis
+                            tickLabelComponent={<VictoryLabel angle={45} dx={20} />}
+                        />                         
                         <VictoryBar
                             style={barChartStyle}
                             data={formattedExpensesByCategoriesTotal}
@@ -92,13 +98,17 @@ export const ExpensesBarChart = (props) => {
                     <VictoryChart
                         domainPadding={30}
                         width={800}
+                        height={400}
                     >
                     <VictoryLabel 
-                        x={130} 
+                        x={40} 
                         y={10} 
                         style={chartLabelStyle}
                         text="Expenses by subcategories"
-                    />                        
+                    />
+                    <VictoryAxis
+                        tickLabelComponent={<VictoryLabel angle={45} dx={20}/>}
+                    />                                             
                     <VictoryBar
                         style={barChartStyle}
                         data={formattedExpensesBySubcategoriesTotal}
@@ -107,7 +117,7 @@ export const ExpensesBarChart = (props) => {
                         x="subcategory"
                         // data accessor for y values
                         y="amount"
-                        sortKey="x"
+                        sortKey="y"
                         sortOrder="descending"
                         />
                     </VictoryChart>
@@ -123,7 +133,7 @@ const mapStateToProps = (state) => {
     return {
         expenseCount: visibleExpenses.length,
         expensesByCategoryTotal: selectExpensesByCategoryTotal(visibleExpenses, state.categories),
-        expensesBySubcategoryTotal: selectExpensesBySubcategoryTotal(visibleExpenses, state.subcategories),
+        expensesBySubcategoryTotal: selectExpensesBySubcategoryTotal(visibleExpenses, state.subcategories, state.categories),
         expensesByDaysTotal: selectExpensesByDaysTotal(visibleExpenses)
     };
 }

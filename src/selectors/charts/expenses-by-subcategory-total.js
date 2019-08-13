@@ -1,11 +1,20 @@
-export default (expenses, subcategories) => {
+export default (expenses, subcategories, categories) => {
         var res = {};
       
         expenses.forEach(function (el) {
-          if (res[el.subcategory]) {
-              res[el.subcategory] += +el.amount
-          } else {
-              res[el.subcategory] = +el.amount
+          if(el.subcategory) {          
+            if (res[el.subcategory]) {
+                res[el.subcategory] += +el.amount
+            } else {
+                res[el.subcategory] = +el.amount
+            }
+          }
+          else {
+            if (res[el.category]) {
+              res[el.category] += +el.amount
+            } else {
+                res[el.category] = +el.amount
+            }            
           }
         });
       
@@ -16,7 +25,8 @@ export default (expenses, subcategories) => {
         var subcategoriesTotalsLabels = subcategoriesTotals.map( (subcategoriesTotals) => (
           {
             subcategory: subcategories.find( (subcategory) => subcategory.id === subcategoriesTotals.subcategoryId ) ? 
-                         subcategories.find( (subcategory) => subcategory.id === subcategoriesTotals.subcategoryId ).label : "No subcategory",
+                         subcategories.find( (subcategory) => subcategory.id === subcategoriesTotals.subcategoryId ).label : 
+                         categories.find( (category) => category.id === subcategoriesTotals.subcategoryId ).label,
             amount: subcategoriesTotals.amount
           }
         ));
