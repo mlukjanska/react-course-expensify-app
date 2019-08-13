@@ -38,7 +38,8 @@ export const ExpensesBarChart = (props) => {
             <div className="chart-item">    
                 { 
                     <VictoryChart
-                        domainPadding={20}
+                        domainPadding={25}
+                        width={800}
                     >
                     <VictoryLabel 
                         x={160} 
@@ -63,7 +64,8 @@ export const ExpensesBarChart = (props) => {
             <div className="chart-item">
                 { 
                     <VictoryChart
-                        domainPadding={20}
+                        domainPadding={25}
+                        width={800}
                     >
                         <VictoryLabel 
                             x={140} 
@@ -88,7 +90,8 @@ export const ExpensesBarChart = (props) => {
             <div className="chart-item">    
                 { 
                     <VictoryChart
-                        domainPadding={20}
+                        domainPadding={25}
+                        width={800}
                     >
                     <VictoryLabel 
                         x={130} 
