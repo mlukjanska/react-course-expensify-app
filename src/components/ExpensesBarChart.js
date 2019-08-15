@@ -48,12 +48,13 @@ export const ExpensesBarChart = (props) => {
                         text="Expenses by day"
                     />
                     <VictoryAxis
-                        tickLabelComponent={<VictoryLabel angle={45} dx={10} />}
+                        tickLabelComponent={<VictoryLabel angle={-90} dx={-2} dy={-5} textAnchor="end"/>}
                     />                               
                     <VictoryBar
                         style={barChartStyle}
                         data={formattedExpensesByDaysTotal}
-                        labels={(formattedExpensesByDaysTotal) => `€ ${formattedExpensesByDaysTotal.amount}`}
+                        labels={(formattedExpensesByDaysTotal) => `€${formattedExpensesByDaysTotal.amount}`}
+                        labelComponent={<VictoryLabel angle={-45} dx={10}/>}
                         // data accessor for x values
                         x="day"
                         // data accessor for y values
@@ -77,12 +78,13 @@ export const ExpensesBarChart = (props) => {
                             text="Expenses by categories"
                         />
                         <VictoryAxis
-                            tickLabelComponent={<VictoryLabel angle={45} dx={20} />}
+                            tickLabelComponent={<VictoryLabel angle={-45} dx={-2} dy={-5} textAnchor="end"/>}
                         />                         
                         <VictoryBar
                             style={barChartStyle}
                             data={formattedExpensesByCategoriesTotal}
-                            labels={(formattedExpensesTotal) => `€ ${formattedExpensesTotal.amount}`}
+                            labels={(formattedExpensesTotal) => `€${formattedExpensesTotal.amount}`}
+                            labelComponent={<VictoryLabel angle={-45} dx={10}/>}
                             // data accessor for x values
                             x="category"
                             // data accessor for y values
@@ -98,7 +100,8 @@ export const ExpensesBarChart = (props) => {
                     <VictoryChart
                         domainPadding={30}
                         width={800}
-                        height={400}
+                        height={500}
+                        padding={{ left: 50, top: 100, bottom: 100 }}
                     >
                     <VictoryLabel 
                         x={40} 
@@ -107,12 +110,13 @@ export const ExpensesBarChart = (props) => {
                         text="Expenses by subcategories"
                     />
                     <VictoryAxis
-                        tickLabelComponent={<VictoryLabel angle={45} dx={20}/>}
+                        tickLabelComponent={<VictoryLabel angle={-90} dx={-2} dy={-5} textAnchor="end" />}
                     />                                             
                     <VictoryBar
                         style={barChartStyle}
                         data={formattedExpensesBySubcategoriesTotal}
-                        labels={(formattedExpensesBySubcategoriesTotal) => `€ ${formattedExpensesBySubcategoriesTotal.amount}`}
+                        labels={(formattedExpensesBySubcategoriesTotal) => `€${formattedExpensesBySubcategoriesTotal.amount}`}
+                        labelComponent={<VictoryLabel angle={-45} dx={10}/>}
                         // data accessor for x values
                         x="subcategory"
                         // data accessor for y values
