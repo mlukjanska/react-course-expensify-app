@@ -24,7 +24,8 @@ export const ExpensesBarChart = (props) => {
     );
 
     const barChartStyle = {                              
-        data: { fill: "#1c88bf", opacity: 0.9 },
+        data: { fill: "#1c88bf", opacity: 0.9},
+        labels: { fontSize: "12px" }
     };
 
     const chartLabelStyle = {
@@ -40,6 +41,8 @@ export const ExpensesBarChart = (props) => {
                     <VictoryChart
                         domainPadding={30}
                         width={800}
+                        height={300}
+                        padding={{ left: 50, top: 70, bottom: 60 }}                        
                     >
                     <VictoryLabel 
                         x={40} 
@@ -70,6 +73,8 @@ export const ExpensesBarChart = (props) => {
                     <VictoryChart
                         domainPadding={30}
                         width={800}
+                        height={500}
+                        padding={{ left: 50, top: 70, bottom: 130 }}
                     >
                         <VictoryLabel 
                             x={40} 
@@ -101,7 +106,7 @@ export const ExpensesBarChart = (props) => {
                         domainPadding={30}
                         width={800}
                         height={500}
-                        padding={{ left: 50, top: 100, bottom: 100 }}
+                        padding={{ left: 50, top: 70, bottom: 150 }}
                     >
                     <VictoryLabel 
                         x={40} 
